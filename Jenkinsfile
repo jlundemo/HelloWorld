@@ -4,6 +4,7 @@ pipeline {
     stage('Unit Test') {
       steps {
         build 'mvn test'
+        echo 'starts'
       }
     }
     stage('Print message') {
