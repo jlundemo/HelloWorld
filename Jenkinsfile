@@ -1,16 +1,24 @@
 pipeline {
-  agent any
+  agent none
   stages {
-    stage('Unit Test') {
+    stage('start') {
       steps {
-        build 'mvn test'
-        echo 'starts'
+        echo 'Starts'
       }
     }
-    stage('Print message') {
+    stage('wait') {
       steps {
-        echo 'Tests is done'
+        sleep 10
       }
     }
+    stage('build') {
+      steps {
+        build 'compile'
+      }
+    }
+  }
+  environment {
+    Test = 'test'
+    QA = 'test'
   }
 }
