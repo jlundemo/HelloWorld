@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Unit Test') {
       steps {
-        build(quietPeriod: -10, job: 'man test')
+        build 'mvn test'
       }
     }
     stage('Print message') {
