@@ -1,24 +1,12 @@
+
+//Jenkinsfile (Declarative Pipeline)
 pipeline {
-  agent none
-  stages {
-    stage('start') {
-      steps {
-        echo 'Starts'
-      }
+    agent { docker 'maven:3.3.3' }
+    stages {
+        stage('build') {
+            steps {
+                sh 'mvn --version'
+            }
+        }
     }
-    stage('wait') {
-      steps {
-        sleep 10
-      }
-    }
-    stage('build') {
-      steps {
-        build 'sh mvn compile'
-      }
-    }
-  }
-  environment {
-    Test = 'test'
-    QA = 'test'
-  }
 }
